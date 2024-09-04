@@ -129,3 +129,24 @@
     place-content: center;
     margin-top: 10%;
   }
+
+
+#centertwo{
+  display: flex;
+  place-content: center;
+  margin-top: 10%;
+}
+
+
+#codeInput {
+  display: inline-block;
+  padding: 8px 15px;
+  margin-right: 6px;
+  font-size: 1em;
+  color: #fff;
+  background: linear-gradient(0deg, rgba(26, 93, 177, 0.8), rgba(19, 16, 54, 0.8)); /* Gradient button */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition:  slideIn 0.3s, transform 0.3s;
+}

@@ -17,9 +17,62 @@
     <div class="download-box">
         <h2>Download Rikhematics</h2>
         <p>Click the button below to download Rikhematics</p>
-        <a href="https://github.com/Swifterhtmler/Rikhematic-equation-solver/releases/download/V1.0.0/math-extension.kopio.zip" class="download-button">Download Now</a>
+        <a href="https://github.com/Swifterhtmler/Rikhematic-equation-solver/releases/download/V1.0.0/math-extension.kopio.zip" id="download-button" class="download-button">Download Now</a>
     </div>
 </div>
+
+<div id="centertwo" style="display: none;">
+<div class="download-box">
+<h2>Unlock Rikhematics Pro Max Ultra Plus Premium</h2>
+    <input type="text" id="codeInput" placeholder="Enter code">
+    <button class="download-button" onclick="checkCode()">Submit</button>
+
+    <br>
+
+    <p id="secretText" style="display:none;">2d7329be27fb45fcaa2f08e441f49260</p>
+
+</div>    
+</div>
+
+
+
+
+<script>
+
+    const testi = document.getElementById("download-button");
+    const center = document.getElementById("center");
+    const centerTwo = document.getElementById("centertwo")
+
+    testi.addEventListener("click", () => {
+       center.innerHTML = centerTwo.innerHTML
+    }); 
+
+
+    async function checkCode() {
+        const inputCode = document.getElementById('codeInput').value;
+        const hash = await hashCode(inputCode);
+        const correctHash = "5ac152b6f8bdb8bb12959548d542cb237c4a730064bf88bbb8dd6e204912baad";
+
+        if (hash === correctHash) {
+            document.getElementById('secretText').style.display = "block";
+        } else {
+            alert("Incorrect code");
+        }
+    }
+
+    async function hashCode(input) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(input);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    }
+
+
+
+</script>
+
 
 </body>
 </html>
